@@ -55,6 +55,8 @@ Note: for now, patterns made in the PC version don't seem to work on the switch 
 | Bottom-Left block       | DPAD DOWN     | S          |
 | Rewind (Creating mode)  | LEFT TRIGGER  | Left arrow |
 | Save (Creating mode)    | PLUS BUTTON   | G          |
+| Back to the main menu   | MINUS BUTTON  | Space      |
+
 
 Block actions mean slicing the block in Playing mode and adding the block in Creating mode.
 
