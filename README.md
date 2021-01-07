@@ -72,7 +72,7 @@ Don't forget to save with g (PC) / + (Switch) when you finish the mapping !
 
 ## PC
 To compile it on PC you will need the libraries: SDL2, SDL2_mixer, SDL2_ttf and SDL2_gfx.
-You can either open the project with code blocks (which should be setup with SDL2) or use the Makefile (command: make).
+You can either open the project with code blocks (which should be setup with SDL2) or use the Makefile (command: `make`).
 Should you use the Makefile, make sure you change the variables SDL_INCLUDE and SDL_LIB at the top to fit your SDL2 installation.
 I used mingw-32g++.exe to compile. If you use another compiler, make sure you have the appropriate libraries (and dlls) and change the compiler in the Makefile.
 
@@ -82,6 +82,6 @@ If you compile with the Makefile, it will be in bin/PC.
 ## Switch
 You will need to use [devkitPro](https://devkitpro.org/wiki/Getting_Started)
 Once it's installed, you can launch Msys2 and using pacman, install switch-sdl2, switch-sdl2_gfx, switch-sdl2_mixer, switch-sdl2_ttf libraries.
-Still in Msys2, use make -f Makefile.switch to compile for the switch.
-The executable will be in bin/switch (you should have the executable and the data in bin/switch/NotBeatSaber).
+Still in Msys2, use `make -f Makefile.switch` to compile for the switch.
+The executable will be in bin/switch (you should have the nro executable and the data in bin/switch/NotBeatSaber).
 
