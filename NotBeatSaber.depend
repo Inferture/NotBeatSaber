@@ -506,7 +506,7 @@
 
 1609590141 c:\users\q\desktop\travail\programmation système\notbeatsaber\include\transform.h
 
-1609946590 c:\users\q\desktop\travail\programmation système\notbeatsaber\include\global.h
+1610057693 c:\users\q\desktop\travail\programmation système\notbeatsaber\include\global.h
 	<string>
 	<SDL2/SDL.h>
 	<SDL2/SDL_ttf.h>
@@ -544,7 +544,7 @@
 	<iostream>
 	"../include/DrawingUtility.h"
 
-1609945938 source:c:\users\q\desktop\travail\programmation système\notbeatsaber\src\global.cpp
+1610057660 source:c:\users\q\desktop\travail\programmation système\notbeatsaber\src\global.cpp
 	"../include/Global.h"
 	"../include/DrawingUtility.h"
 
@@ -555,7 +555,7 @@
 1609947084 c:\users\q\desktop\travail\programmation système\notbeatsaber\include\line.h
 	"../include/GameObject.h"
 
-1609936644 source:c:\users\q\desktop\travail\programmation système\notbeatsaber\src\main.cpp
+1610059828 source:c:\users\q\desktop\travail\programmation système\notbeatsaber\src\main.cpp
 	<exception>
 	<string>
 	<iostream>

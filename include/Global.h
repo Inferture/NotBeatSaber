@@ -51,9 +51,6 @@ extern int HEIGHT;
 
 extern float SCALE_HORIZON;
 
-extern int points;
-extern int combo;
-extern int multiplier;
 
 
 extern int LINE_PERIOD;

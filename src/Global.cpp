@@ -43,10 +43,7 @@ int HEIGHT=720;
 //Difference between the the scale at the front and at the back (where there is the black rectangle)
 float SCALE_HORIZON = 0.125;
 
-//Will be displayed at the center in play mode
-int points = 0;
-int combo = 0;
-int multiplier = 1;
+
 
 
 int LINE_PERIOD=500;

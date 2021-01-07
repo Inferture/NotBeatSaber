@@ -29,53 +29,6 @@ using std::min;
 using std::max;
 using std::stringstream;
 
-//using namespace std;
-
-
-//Graphics -
-//Push/Pop matrix -
-//SeriliazePattern -
-//Fonts (SDL_ttf)
-//Sounds (SDL_mixer)
-//Triangles (SDL_gfx)
-
-
-/*
-void SDL::draw()
-{
-    // Clear the window with a black background
-    SDL_SetRenderDrawColor( m_renderer, 0, 0, 0, 255 );
-    SDL_RenderClear( m_renderer );
-
-    // Show the window
-    SDL_RenderPresent( m_renderer );
-
-    int rgb[] = { 203, 203, 203, // Gray
-                  254, 254,  31, // Yellow
-                    0, 255, 255, // Cyan
-                    0, 254,  30, // Green
-                  255,  16, 253, // Magenta
-                  253,   3,   2, // Red
-                   18,  14, 252, // Blue
-                    0,   0,   0  // Black
-                };
-
-    SDL_Rect colorBar;
-    colorBar.x = 0; colorBar.y = 0; colorBar.w = 90; colorBar.h = 480;
-
-    // Render a new color bar every 0.5 seconds
-    for ( int i = 0; i != sizeof rgb / sizeof *rgb; i += 3, colorBar.x += 90 )
-    {
-        SDL_SetRenderDrawColor( m_renderer, rgb[i], rgb[i + 1], rgb[i + 2], 255 );
-        SDL_RenderFillRect( m_renderer, &colorBar );
-        SDL_RenderPresent( m_renderer );
-        SDL_Delay( 500 );
-    }
-}
-*/
-
-//2
-
 vector<Line*> lines;
 vector<Block*> blocks;
 vector<Block*> hittableBlocks;
@@ -86,10 +39,8 @@ Line* limitUp = new Line(0);
 Line* limitLeft = new Line(1);
 Line* limitRight = new Line(3);
 
-//Block* limitFar = new Block(-WIDTH/2, -HEIGHT/2,WIDTH, HEIGHT);//-WIDTH/2, -HEIGHT/2,
-//Block* limit = new Block(-WIDTH/2, -HEIGHT/2,WIDTH, HEIGHT);
-//Block* limitClose = new Block(-WIDTH/2, -HEIGHT/2,WIDTH, HEIGHT);
-Block* limitFar = new Block(WIDTH, HEIGHT);//-WIDTH/2, -HEIGHT/2,
+
+Block* limitFar = new Block(WIDTH, HEIGHT);
 Block* limit = new Block(WIDTH, HEIGHT);
 Block* limitClose = new Block(WIDTH, HEIGHT);
 
@@ -103,11 +54,6 @@ int deltaTime=0;
 SDL_Color targetColor;
 bool fastTransformation;
 
-/*
-SoundFile musicFile;
-SoundFile cut;
-
-*/
 Mix_Music *musicSound;
 Mix_Chunk *cut;
 
@@ -117,10 +63,6 @@ int currentMusic;
 
 char sep = '/';
 
-/*
-PFont displayFont;
-PFont displayFontLarge;
-*/
 TTF_Font *displayFont;
 TTF_Font *displayFontLarge;
 
@@ -135,7 +77,10 @@ int acc_right_y;
 int acc_left_x;
 int acc_left_y;
 
-
+//Will be displayed at the center in play mode
+int points = 0;
+int combo = 0;
+int multiplier = 1;
 
 int ACCELERATION_TRESHOLD=50;
 
@@ -175,9 +120,6 @@ void setup()
     limit->transform->z = (int)(Z0* Z_HIT_RATIO);
     limitClose->transform->z = (int)(Z0* (Z_HIT_RATIO-Z_HIT_RATIO_TOLERANCE));
 
-    //Initiates the screen
-    //size(1200, 900);
-
     targetColor = RandomWallColor();
 
 
@@ -191,8 +133,6 @@ void setup()
 
     displayFont = TTF_OpenFont(fontFile.c_str(), 12);
     displayFontLarge = TTF_OpenFont(fontFile.c_str(), 16);
-    //displayFontLarge= createFont("data/animeace2_reg.ttf", 16);
-    //displayFont = createFont("data/animeace2_reg.ttf", 12);
     textFont(displayFont);
 
     //SOUND
@@ -208,7 +148,6 @@ void setup()
     cutFileStream<<MAIN_FOLDER<<sep<<"soundeffects"<<sep<<"cut.wav";
     string cutFile = cutFileStream.str();
     cut = Mix_LoadWAV(cutFile.c_str());
-    //cut = new SoundFile(this, "data/" + "cut.wav");
 
     Mix_Volume(1, MIX_MAX_VOLUME/2);
 
@@ -240,12 +179,36 @@ void setup()
 
 
 
+void Reinitialize()
+{
 
+  currentSpawn = 0;
+
+  while(blocks.size()>0)
+  {
+      delete blocks.back();
+      blocks.pop_back();
+  }
+
+  while(lines.size()>0)
+  {
+      delete lines.back();
+      lines.pop_back();
+  }
+
+  Mix_HaltMusic();
+
+  points=0;
+  combo=0;
+  multiplier=1;
+
+}
 
 void StartGame(string musicFileName)
 {
-  //text("Loading...",WIDTH/2,HEIGHT/2,WIDTH, HEIGHT);
+    wallColor = RandomWallColor();
     text("Loading...",WIDTH/2,HEIGHT/2);
+
   if(mode==Playing)
   {
       cout<<"\nStarting game in Playing Mode\n";
@@ -255,7 +218,6 @@ void StartGame(string musicFileName)
      {
          Z_SPEED=-Z_SPEED;
      }
-     //Z_SPEED=abs(Z_SPEED);
      cout<<"ZSPEED after:"<<Z_SPEED<<"\n";
   }
   else
@@ -266,11 +228,8 @@ void StartGame(string musicFileName)
      {
          Z_SPEED=-Z_SPEED;
      }
-     //Z_SPEED=-abs(Z_SPEED);
   }
 
-  //musicFile = new SoundFile(this, "data/" + musicFileName + ".mp3");
-  //musicFile.play();
 
   stringstream musicPathStream;
   musicPathStream<<MAIN_FOLDER<<sep<<musicFileName<<".mp3";
@@ -284,6 +243,9 @@ void StartGame(string musicFileName)
   lastFrameTime=startTime;
   lastColorUpdateTime=startTime;
   render();
+
+
+
 }
 
 
@@ -294,11 +256,6 @@ void draw()  //loops forever
   //Center in the center of the screen
   pushMatrix();
   translate(WIDTH/2, HEIGHT/2);
-  //clear();
-
-//    SDL_SetRenderDrawColor( m_renderer, 0, 0, 0, 255 );
- //   SDL_RenderClear( m_renderer );
-
   if(step==ChooseMode || step==ChooseMusic)
   {
     Display();
@@ -318,7 +275,6 @@ void draw()  //loops forever
 
     accelerometerAction(right_x, right_y, left_x, left_y);
 
-    //ARDUINOHERE
 
     /****/
     //Changes road color
@@ -369,10 +325,8 @@ void draw()  //loops forever
 
     for(int i=0;i<blocks.size();i++)
     {
-       //cout<<"\nBefore translation: " <<"(Speed = " << Z_SPEED << " and deltaTime = " <<deltaTime<< blocks[i]->transform->z;
        blocks[i]->transform->z-=Z_SPEED*deltaTime;
        blocks[i]->hittable= blocks[i]->transform->z>=Z0*(Z_HIT_RATIO-Z_HIT_RATIO_TOLERANCE) && blocks[i]->transform->z<=Z0*(Z_HIT_RATIO+Z_HIT_RATIO_TOLERANCE);
-        //cout<<" / After translation: " << blocks[i]->transform->z<<"\n";
        if(blocks[i]->transform->z<0)
        {
          if(!blocks[i]->hit)
@@ -421,22 +375,18 @@ void Display()
      {
          textFont(displayFontLarge);
          fill(SDL_Color{0,255,255});
-         //text(">Play", -WIDTH/2+60,-HORIZON_HEIGHT/2, WIDTH, HORIZON_HEIGHT);
          text(">Play", -WIDTH/2+60,-HORIZON_HEIGHT/2);
          textFont(displayFont);
          fill(SDL_Color{255,255,255});
-         //text("Make a pattern", -WIDTH/2+60,-HORIZON_HEIGHT/2+60, WIDTH, HORIZON_HEIGHT);
          text("Make a pattern", -WIDTH/2+60,-HORIZON_HEIGHT/2+60);
      }
      else
      {
          textFont(displayFont);
          fill(SDL_Color{255,255,255});
-         //text("Play", -WIDTH/2+60,-HORIZON_HEIGHT/2, WIDTH, HORIZON_HEIGHT);
          text("Play", -WIDTH/2+60,-HORIZON_HEIGHT/2);
          textFont(displayFontLarge);
          fill(SDL_Color{0,255,255});
-         //text(">Make a pattern", -WIDTH/2+60,-HORIZON_HEIGHT/2+60, WIDTH, HORIZON_HEIGHT);
          text(">Make a pattern", -WIDTH/2+60,-HORIZON_HEIGHT/2+60);
      }
   }
@@ -444,7 +394,7 @@ void Display()
   if(step==ChooseMusic)
   {
        fill(MENU_SCREEN_COLOR);
-       stroke(MENU_SCREEN_COLOR);//24, 71, 74);
+       stroke(MENU_SCREEN_COLOR);
        rect(-WIDTH/2,-HEIGHT/2,WIDTH,HEIGHT);
        textFont(displayFont);
 
@@ -453,7 +403,7 @@ void Display()
        {
            for(int i=0;i<currentMusic;i++)
             {
-                text(musics[i], -WIDTH/2+120,-HEIGHT/2 + 60*(i+1));// WIDTH, HORIZON_HEIGHT);
+                text(musics[i], -WIDTH/2+120,-HEIGHT/2 + 60*(i+1));
             }
        }
 
@@ -461,14 +411,13 @@ void Display()
        fill(SDL_Color{0,255,255});
        if(musics.size()>currentMusic)
        {
-           //cout<< "Current music: " << musics[currentMusic]<<"\n";
-        text(musics[currentMusic], -WIDTH/2+120,-HEIGHT/2 + 60*(currentMusic+1));//, WIDTH, HORIZON_HEIGHT);
+        text(musics[currentMusic], -WIDTH/2+120,-HEIGHT/2 + 60*(currentMusic+1));
        }
        textFont(displayFont);
        fill(SDL_Color{255,255,255});
        for(int i=currentMusic+1;i<musics.size();i++)
        {
-           text(musics[i], -WIDTH/2+120,-HEIGHT/2 + 60*(i+1));// WIDTH, HORIZON_HEIGHT);
+           text(musics[i], -WIDTH/2+120,-HEIGHT/2 + 60*(i+1));
        }
 
   }
@@ -479,11 +428,6 @@ void Display()
 
 
     fill(wallColor);
-
-    //Temp road
-    //rect(-WIDTH/2,-HEIGHT/2,WIDTH,HEIGHT);
-
-    //Actual road
     triangle(0,0,WIDTH/2, HEIGHT/2, -WIDTH/2, HEIGHT/2);
     triangle(0,0,-WIDTH/2, -HEIGHT/2, WIDTH/2, -HEIGHT/2);
 
@@ -496,8 +440,7 @@ void Display()
     //Display lines
 
     SDL_Color newStrokeColor = MultiplyColor(wallColor,1.3);
-    newStrokeColor = SDL_Color{strokeColor.r, strokeColor.g, strokeColor.b, 255};//190};
-    //newStrokeColor = SDL_Color{255,255,255,255};
+    newStrokeColor = SDL_Color{strokeColor.r, strokeColor.g, strokeColor.b, 255};
     stroke(newStrokeColor,255);
 
     for(int i=0;i<lines.size();i++)
@@ -506,7 +449,6 @@ void Display()
         {
             lines[i]->Display();
         }
-       //lines[i]->Display();
     }
 
     //Display goal
@@ -517,8 +459,6 @@ void Display()
     stroke(SDL_Color{235, 158, 52});
     fill(SDL_Color{255,255,255,0},0);
     limitFar->Display();
-    //fill(SDL_Color{255,255,255,0},0);
-    //limitFar->Display();
     limitClose->Display();
 
 
@@ -526,18 +466,11 @@ void Display()
     stroke(SDL_Color{5,255,10});
     fill(SDL_Color{5,5,10});
 
-    //rect(-HORIZON_WIDTH,-HORIZON_HEIGHT, HORIZON_WIDTH, HORIZON_HEIGHT);
     rect(-HORIZON_WIDTH/2,-HORIZON_HEIGHT/2, HORIZON_WIDTH, HORIZON_HEIGHT);
 
     //Display infos
     if(mode==Playing)
     {
-        /*stringstream infoStream;
-        infoStream<<"Score: " << points << std::endl;
-        infoStream<<points << std::endl;
-        infoStream << "Combo: " << combo <<std::endl;
-        infoStream << "Multiplier: " << multiplier;
-        string infos = infoStream.str();*/
         stringstream scoreStream;
         scoreStream<<"Score: "<<points;
         string scoreString = scoreStream.str();
@@ -551,12 +484,11 @@ void Display()
         string multiplierString = multiplierStream.str();
 
         fill(wallColor);
-        //text(infos, -HORIZON_WIDTH/2,-HORIZON_HEIGHT/2);//, HORIZON_WIDTH, HORIZON_HEIGHT);
 
-        text(scoreString, -HORIZON_WIDTH/2 + 10,-HORIZON_HEIGHT/2 + 5);//, HORIZON_WIDTH, HORIZON_HEIGHT);
+        text(scoreString, -HORIZON_WIDTH/2 + 10,-HORIZON_HEIGHT/2 + 5);
 
-        text(comboString, -HORIZON_WIDTH/2 + 10,-HORIZON_HEIGHT/2 + HORIZON_HEIGHT / 3 + 5);//, HORIZON_WIDTH, HORIZON_HEIGHT);
-        text(multiplierString, -HORIZON_WIDTH/2 + 10,-HORIZON_HEIGHT/2 + 2 *HORIZON_HEIGHT / 3 + 5);//, HORIZON_WIDTH, HORIZON_HEIGHT);
+        text(comboString, -HORIZON_WIDTH/2 + 10,-HORIZON_HEIGHT/2 + HORIZON_HEIGHT / 3 + 5);
+        text(multiplierString, -HORIZON_WIDTH/2 + 10,-HORIZON_HEIGHT/2 + 2 *HORIZON_HEIGHT / 3 + 5);
     }
 
 
@@ -688,7 +620,6 @@ void accelerometerAction(int right_x, int right_y, int left_x, int left_y)
              points+=multiplier;
              combo++;
              Mix_PlayChannel(1, cut, 0);
-             //cut.play();
          }
       }
    }
@@ -705,7 +636,6 @@ void accelerometerAction(int right_x, int right_y, int left_x, int left_y)
              points+=multiplier;
              combo++;
              Mix_PlayChannel(1, cut, 0);
-             //cut.play();
          }
       }
    }
@@ -722,7 +652,6 @@ void accelerometerAction(int right_x, int right_y, int left_x, int left_y)
              points+=multiplier;
              combo++;
              Mix_PlayChannel(1, cut, 0);
-             //cut.play();
          }
       }
    }
@@ -739,7 +668,6 @@ void accelerometerAction(int right_x, int right_y, int left_x, int left_y)
              points+=multiplier;
              combo++;
              Mix_PlayChannel(1, cut, 0);
-             //cut.play();
          }
       }
    }
@@ -756,7 +684,6 @@ void accelerometerAction(int right_x, int right_y, int left_x, int left_y)
              points+=multiplier;
              combo++;
              Mix_PlayChannel(1, cut, 0);
-             //cut.play();
          }
       }
    }
@@ -772,7 +699,6 @@ void accelerometerAction(int right_x, int right_y, int left_x, int left_y)
              points+=multiplier;
              combo++;
              Mix_PlayChannel(1, cut, 0);
-             //cut.play();
          }
       }
    }
@@ -819,10 +745,7 @@ vector<string> ListAllFilesIn(string directory, bool print=false)
     }
     else
     {
-      /* could not open directory */
-      //perror ("");
       cout<<"Error: could not open directory";
-      //return EXIT_FAILURE;
     }
     return files;
 }
@@ -834,6 +757,7 @@ void handleEvent(SDL_Event* eventPtr)
   if(event.type == SDL_QUIT)
   {
       finish=true;
+      return;
   }
 
 
@@ -861,14 +785,6 @@ void handleEvent(SDL_Event* eventPtr)
     {
         if(ControllerHandles[ControllerIndex] != 0 && SDL_GameControllerGetAttached(ControllerHandles[ControllerIndex]))
         {
-            //cout<<"Checking controller" << ControllerIndex<<"\n";
-            // NOTE: We have a controller with index ControllerIndex.
-            if(SDL_GameControllerGetButton(ControllerHandles[ControllerIndex], SDL_CONTROLLER_BUTTON_DPAD_UP))
-            {
-
-            //cout<<"UUUUUUUUUUUUUPPPPPPPPPPPPPPPPPPPPPP" << ControllerIndex<<"\n";
-            }
-
             Controller_Up = Controller_Up || SDL_GameControllerGetButton(ControllerHandles[ControllerIndex], SDL_CONTROLLER_BUTTON_DPAD_UP);
             Controller_Down = Controller_Down || SDL_GameControllerGetButton(ControllerHandles[ControllerIndex], SDL_CONTROLLER_BUTTON_DPAD_DOWN);
             Controller_Left = Controller_Left || SDL_GameControllerGetButton(ControllerHandles[ControllerIndex], SDL_CONTROLLER_BUTTON_DPAD_LEFT);
@@ -913,13 +829,22 @@ void handleEvent(SDL_Event* eventPtr)
     }
     lastLeftTriggerValue = Controller_LeftTrigger;
 
+
+  if((event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_SPACE) || Controller_RightShoulder)
+  {
+    Reinitialize();
+    step=ChooseMode;
+  }
+
+  if((event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_ESCAPE))// || Controller_Back)
+  {
+    finish=true;
+    return;
+  }
+
   if(event.type != SDL_KEYDOWN && event.type != SDL_CONTROLLERBUTTONDOWN)
   {
-      if(event.type == SDL_KEYUP && event.key.keysym.sym == SDLK_ESCAPE)
-      {
-        finish = true;
-      }
-      return;
+      return ;
   }
 
 
@@ -941,7 +866,7 @@ void handleEvent(SDL_Event* eventPtr)
            mode=Playing;
         }
       }
-      if(keyCode==SDLK_RETURN || Controller_AButton)
+      if(keyCode==SDLK_RETURN || Controller_BButton)
       {
         step=ChooseMusic;
 
@@ -969,7 +894,7 @@ void handleEvent(SDL_Event* eventPtr)
                 {
                     string name = files[i].substr(0,files[i].length()-4);
                     string patternFileName = name;
-                    patternFileName+= ".pattern";//".json";
+                    patternFileName+= ".pattern";
                     if (find(files.begin(), files.end(), patternFileName) != files.end())
                     {
                         musics.push_back(name);
@@ -1003,7 +928,7 @@ void handleEvent(SDL_Event* eventPtr)
                 cout<<"\nSelected: "<<musics[currentMusic]<<"\n";
             }
        }
-       if(keyCode==SDLK_RETURN ||Controller_AButton)
+       if(keyCode==SDLK_RETURN ||Controller_BButton)
        {
            text("Loading...",50,50);//WIDTH, HEIGHT);
            StartGame(musics[currentMusic]);
@@ -1073,7 +998,6 @@ void handleEvent(SDL_Event* eventPtr)
                points+=multiplier;
                combo++;
                 Mix_PlayChannel(1, cut, 0);
-               //cut.play();
            }
         }
       }
@@ -1088,7 +1012,6 @@ void handleEvent(SDL_Event* eventPtr)
                points+=multiplier;
                combo++;
                 Mix_PlayChannel(1, cut, 0);
-               //cut.play();
            }
         }
       }
@@ -1103,7 +1026,6 @@ void handleEvent(SDL_Event* eventPtr)
                points+=multiplier;
                combo++;
                 Mix_PlayChannel(1, cut, 0);
-               //cut.play();
            }
         }
       }
@@ -1118,7 +1040,6 @@ void handleEvent(SDL_Event* eventPtr)
                points+=multiplier;
                combo++;
                Mix_PlayChannel(1, cut, 0);
-               //cut.play();
            }
         }
       }
@@ -1133,7 +1054,6 @@ void handleEvent(SDL_Event* eventPtr)
                points+=multiplier;
                combo++;
                Mix_PlayChannel(1, cut, 0);
-               //cut.play();
            }
         }
       }
@@ -1148,7 +1068,6 @@ void handleEvent(SDL_Event* eventPtr)
                points+=multiplier;
                combo++;
                Mix_PlayChannel(1, cut, 0);
-               //cut.play();
            }
         }
       }
@@ -1171,9 +1090,7 @@ void Rewind(int timeMs)
    double timeSecond = timeMs / 1000.0;
    timeMs = timeSecond * 1000;
 
-   //startTime=min(startTime+(int)(timeSecond*1000),millis());
   startTime=min(startTime+timeMs,millis());
-  //musicFile.jump((float)(millis()-startTime)/1000);
 
   Mix_SetMusicPosition((double)(millis()-startTime) / 1000.0);
   //Move blocks
@@ -1213,57 +1130,8 @@ void Rewind(int timeMs)
         lines[i]->enabled=false;
      }
   }
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-int main(int argc, char *argv[]) {
-    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        SDL_Log("Nem indithato az SDL: %s", SDL_GetError());
-        exit(1);
-    }
-    SDL_Window *window = SDL_CreateWindow("SDL peldaprogram", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 440, 360, 0);
-    if (window == NULL) {
-        SDL_Log("Nem hozhato letre az ablak: %s", SDL_GetError());
-        exit(1);
-    }
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-    if (renderer == NULL) {
-        SDL_Log("Nem hozhato letre a megjelenito: %s", SDL_GetError());
-        exit(1);
-    }
-    SDL_RenderClear(renderer);
-
-    int x, y, r;
-
-    circleRGBA(renderer, x, y, r, 255, 0, 0, 255);
-    circleRGBA(renderer, x + r, y, r, 0, 255, 0, 255);
-    circleRGBA(renderer, x + r * cos(3.1415 / 3), y - r * sin(3.1415 / 3), r, 0, 0, 255, 255);
-
-    SDL_RenderPresent(renderer);
-
-    SDL_Event ev;
-    while (SDL_WaitEvent(&ev) && ev.type != SDL_QUIT) {
-    }
-
-    SDL_Quit();
-    return 0;
-}
-*/
 
 
 
@@ -1272,51 +1140,36 @@ int main( int argc, char * argv[] )
 {
 
     setup();
-//ListAllFilesIn(".", true);
     Transform* tr = new Transform(1,1,1);
 
-    try
+    fill({0,125,125,255});
+    stroke({255,255,255,255});
+    rect(0,0,100,300);
+
+    int timeDeltaForRewindMs = 20;
+    int lastRewindTimeMs=millis();
+
+    while(!finish)
     {
-        //SDL sdl( SDL_INIT_VIDEO | SDL_INIT_TIMER );
 
-        //sdl.draw();
-        fill({0,125,125,255});
-        stroke({255,255,255,255});
-        rect(0,0,100,300);
+        draw();
+        SDL_Event event;
 
-        int timeDeltaForRewindMs = 20;
-        int lastRewindTimeMs=millis();
-        while(!finish)
+        while(SDL_PollEvent(&event))
         {
-
-            draw();
-            SDL_Event event;
-
-            while(SDL_PollEvent(&event))
-            {
-                handleEvent(&event);
-            }
-
-            if(lastLeftTriggerValue>64 && millis() - lastRewindTimeMs > timeDeltaForRewindMs)//64: threshold
-            {
-                lastRewindTimeMs=millis();
-                Rewind(100);
-            }
-
-            SDL_Delay(1);
+            handleEvent(&event);
         }
 
+        if(lastLeftTriggerValue>64 && millis() - lastRewindTimeMs > timeDeltaForRewindMs)//64: threshold
+        {
+            lastRewindTimeMs=millis();
+            Rewind(100);
+        }
 
-        return 0;
-    }
-    catch ( const InitError & err )
-    {
-        std::cerr << "Error while initializing SDL:  "
-                  << err.what()
-                  << std::endl;
+        SDL_Delay(1);
     }
 
-    return 1;
+    return 0;
 }
 
 
