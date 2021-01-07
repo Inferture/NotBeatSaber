@@ -12,7 +12,7 @@ For the music to be available, there must be a file music.mp3 and a pattern file
 
 For example, if the music is **"MyAwesomeMusic"**, there must be a .mp3 **"MyAwesomeMusic.mp3"** and a pattern **"MyAwesomeMusic.pattern"** in the data folder. 
 
-![](https://media.giphy.com/media/lN9geFOynllLuaEC7S/giphy.gif)
+![](https://media.giphy.com/media/QNArnB1mIYe8css6Nf/giphy.gif)
 
 
 
