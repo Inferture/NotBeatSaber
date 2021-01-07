@@ -1,0 +1,158 @@
+ifeq ($(strip $(DEVKITPRO)),)
+$(error "Please set DEVKITPRO in your environment. export DEVKITPRO=<path to>/devkitpro")
+endif
+
+TOPDIR ?= $(CURDIR)
+ 
+include $(DEVKITPRO)/libnx/switch_rules
+
+export BUILD_EXEFS_SRC := build/exefs
+
+APP_TITLE := NotBeatSaber
+APP_DESCRIPTION := NotBeatSaber
+APP_AUTHOR := Inferture
+APP_VERSION := 0.1.0
+#ICON := icon.png
+
+WINDRES   = windres.exe
+
+
+OBJ_FOLDER = ./obj/Switch
+
+OBJ       = $(OBJ_FOLDER)/Global.o $(OBJ_FOLDER)/Transform.o $(OBJ_FOLDER)/GameObject.o $(OBJ_FOLDER)/ColorUtility.o $(OBJ_FOLDER)/DrawingUtility.o $(OBJ_FOLDER)/Line.o $(OBJ_FOLDER)/Block.o $(OBJ_FOLDER)/main.o $(OBJ_FOLDER)/Pattern.o
+LINKOBJ   = $(OBJ_FOLDER)/Global.o $(OBJ_FOLDER)/Transform.o $(OBJ_FOLDER)/GameObject.o $(OBJ_FOLDER)/ColorUtility.o $(OBJ_FOLDER)/DrawingUtility.o $(OBJ_FOLDER)/Line.o $(OBJ_FOLDER)/Block.o $(OBJ_FOLDER)/main.o $(OBJ_FOLDER)/Pattern.o
+LIBS      = -specs=$(DEVKITPRO)/libnx/switch.specs -g -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE -L$(DEVKITPRO)/libnx/lib -L$(DEVKITPRO)/portlibs/switch/lib -lSDL2_ttf -lSDL2_gfx -lSDL2_mixer -lmpg123 -lmodplug -lvorbisidec -logg -lopusfile -lopus `sdl2-config --libs` -lm  -lstdc++ -lnx -lfreetype -lbz2 -lz -lpng
+
+
+INCS      = -I$(DEVKITPRO)/portlibs/switch/include/SDL2 -I"src" -I$(DEVKITPRO)/libnx/include -I$(DEVKITPRO)/portlibs/switch/include
+CXXINCS   = -I$(DEVKITPRO)/portlibs/switch/include/SDL2 -I"src" -I$(DEVKITPRO)/libnx/include -I$(DEVKITPRO)/portlibs/switch/include
+
+
+BINDIR	  = ./bin/Switch
+BIN       = $(BINDIR)/$(OUTPUT).elf
+BUILD	  =	build
+DEFINES   =  -DSWITCH -DSDL2
+CXXFLAGS  = $(CXXINCS) $(DEFINES) -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE -O3
+CFLAGS    = $(INCS) $(DEFINES)    -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE -O3
+GPROF     = gprof.exe
+RM        = rm -f
+
+
+
+LINK      = aarch64-none-elf-g++
+
+CPP       = aarch64-none-elf-g++
+CC        = aarch64-none-elf-gcc 
+
+OUTPUT    = NotBeatSaber
+
+
+ifeq ($(strip $(ICON)),)
+	icons := $(wildcard *.jpg)
+	ifneq (,$(findstring $(TARGET).jpg,$(icons)))
+		export APP_ICON := $(TOPDIR)/$(TARGET).jpg
+	else
+		ifneq (,$(findstring icon.jpg,$(icons)))
+			export APP_ICON := $(TOPDIR)/icon.jpg
+		endif
+	endif
+else
+	export APP_ICON := $(TOPDIR)/$(ICON)
+endif
+
+ifeq ($(strip $(NO_ICON)),)
+	export NROFLAGS += --icon=$(APP_ICON)
+endif
+
+ifeq ($(strip $(NO_NACP)),)
+	export NROFLAGS += --nacp=$(BINDIR)/$(OUTPUT).nacp
+endif
+
+ifneq ($(APP_TITLEID),)
+	export NACPFLAGS += --titleid=$(APP_TITLEID)
+endif
+
+ifneq ($(ROMFS),)
+	export NROFLAGS += --romfsdir=$(CURDIR)/$(ROMFS)
+endif
+
+
+.PHONY: all all-before all-after clean clean-custom cleanobj
+	
+	
+all	:	all-before  $(BINDIR)/$(OUTPUT).pfs0 $(BINDIR)/$(OUTPUT).nro all-after
+	
+all-before:
+	mkdir -p $(OBJ_FOLDER)
+	mkdir -p $(BINDIR)
+	
+
+all-after:
+	mkdir -p $(BINDIR)/NotBeatSaber
+	cp $(BINDIR)/NotBeatSaber.nro $(BINDIR)/NotBeatSaber/NotBeatSaber.nro 
+	cp -r data $(BINDIR)/NotBeatSaber
+
+cleanobj:
+	$(RM) $(OBJ)
+clean:
+	$(RM) $(OBJ) $(BIN)
+
+
+$(BIN): $(LINKOBJ)
+	$(LINK) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+
+$(OBJ_FOLDER)/Block.o: src/Block.cpp $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/Block.cpp -o $(OBJ_FOLDER)/Block.o $(CXXFLAGS)
+
+
+$(OBJ_FOLDER)/ColorUtility.o: src/ColorUtility.cpp  $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/ColorUtility.cpp -o $(OBJ_FOLDER)/ColorUtility.o $(CXXFLAGS)
+
+
+$(OBJ_FOLDER)/DrawingUtility.o: src/DrawingUtility.cpp  $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/DrawingUtility.cpp -o $(OBJ_FOLDER)/DrawingUtility.o $(CXXFLAGS)
+
+
+$(OBJ_FOLDER)/GameObject.o: src/GameObject.cpp  $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/GameObject.cpp -o $(OBJ_FOLDER)/GameObject.o $(CXXFLAGS)
+
+
+$(OBJ_FOLDER)/Line.o: src/Line.cpp  $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/Line.cpp -o $(OBJ_FOLDER)/Line.o $(CXXFLAGS)
+
+
+$(OBJ_FOLDER)/Pattern.o: src/Pattern.cpp  $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/Pattern.cpp -o $(OBJ_FOLDER)/Pattern.o $(CXXFLAGS)
+
+
+$(OBJ_FOLDER)/Transform.o: src/Transform.cpp $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/Transform.cpp -o $(OBJ_FOLDER)/Transform.o $(CXXFLAGS)
+
+$(OBJ_FOLDER)/main.o: src/main.cpp src/Global.cpp $(OBJ_FOLDER)/Global.o
+	$(CPP) -c src/main.cpp  -o $(OBJ_FOLDER)/main.o $(CXXFLAGS)
+
+$(OBJ_FOLDER)/Global.o:
+	$(CPP) -c src/Global.cpp -o $(OBJ_FOLDER)/Global.o $(CXXFLAGS)
+
+
+#---------------------------------------------------------------------------------
+# main targets
+#---------------------------------------------------------------------------------
+
+
+$(BINDIR)/$(OUTPUT).pfs0	:	$(BINDIR)/$(OUTPUT).nso
+
+$(BINDIR)/$(OUTPUT).nso	:	$(BIN)
+
+ifeq ($(strip $(NO_NACP)),)
+$(BINDIR)/$(OUTPUT).nro	:	$(BIN) $(BINDIR)/$(OUTPUT).nacp
+else
+$(BINDIR)/$(OUTPUT).nro	:	$(BIN)
+endif
+
+$(BIN)	:	$(OFILES)
+
+$(OFILES_SRC)	: $(HFILES_BIN)
+	
+# end of Makefile ...
