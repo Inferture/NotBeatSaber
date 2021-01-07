@@ -22,9 +22,9 @@ This game is made to create a map.
 
 For this, the  music must be a valid .mp3 inside the data folder.
 
-For example, if the music is **"MeltyBlood"**, there must be a .mp3 **"MeltyBlood.mp3"** in the data folder. 
+For example, if the music is **"MyAwesomeMusic"**, there must be a .mp3 **"MyAwesomeMusic.mp3"** in the data folder. 
 
-![](https://media.giphy.com/media/XgYhMA1uUcpjhx648r/giphy.gif)
+![](https://media.giphy.com/media/xVjoQtmnOnV19z0BYD/giphy.gif)
 
 You should play the music with the beat (Press a button exactly on beat so that on Playing mode, the player should also play it on beat).
 
