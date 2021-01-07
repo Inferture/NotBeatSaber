@@ -35,7 +35,7 @@ Just download the release.zip and put your MP3s in the data folder.
 
 ## Switch setup
 
-Put the data folder at the root of your sdcard and launch the NotBeatSaber.nro. 
+Put the data folder at the root of your sdcard and launch the NotBeatSaber.nro (It's all theory though since I couldn't test with a modded switch yet). 
 If you are using Ryujinx, use File-> Open Ryujinx folder and place the data folder inside the sdcard folder (the hierarchy will be *Ryujinx folder*/sdcard/data).
 
 Note: for now, patterns made in the PC version don't seem to work on the switch but the ones made on the switch seem to work on PC.
