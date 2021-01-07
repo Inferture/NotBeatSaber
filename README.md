@@ -1,5 +1,5 @@
 # NotBeatSaber
-Port of the [rythm game I made in processing](https://github.com/Inferture/NotBeatSaber-processing) in C with SDL2, for PC and Switch.
+Port of the [rythm game I made in processing](https://github.com/Inferture/NotBeatSaber-processing) in C++ with SDL2, for PC and Switch.
 
 
 # Usage
