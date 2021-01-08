@@ -70,7 +70,12 @@ int CREDIT_DISPLAY_TIME=5000;
 int CREDIT_WIDTH=300;
 int CREDIT_HEIGHT=30;
 
+#ifdef SWITCH
+string MAIN_FOLDER = "./NotBeatSaber/data";
+#else
 string MAIN_FOLDER = "./data";
+#endif // SWITCH
+
 
 
 

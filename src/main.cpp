@@ -110,7 +110,14 @@ int millis()
 void setup()
 {
     SCALE_HORIZON=(float)HORIZON_WIDTH/(float)WIDTH;
-    MAIN_FOLDER="./data";
+
+    #ifdef SWITCH
+    MAIN_FOLDER = "./NotBeatSaber/data";
+    #else
+    MAIN_FOLDER = "./data";
+    #endif // SWITCH
+
+
     LINE_PERIOD=(int) (1000*(float)60/(float)bpm);
 
     lines= vector<Line*>();
