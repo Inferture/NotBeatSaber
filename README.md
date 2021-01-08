@@ -47,7 +47,7 @@ Note: for now, patterns made in the PC version don't seem to work on the switch 
 | ------------------------|:-------------:|:--------:|
 | Up (menu)               | DPAD UP       | Up arrow   |
 | Down (menu)             | DPAD DOWN     | Down arrow |
-| Select (menu)           | B BUTTON      | Enter      |
+| Select (menu)           | A BUTTON      | Enter      |
 | Right block             | A BUTTON      | Right arrow|
 | Top-Right block         | X BUTTON      | Up arrow   |
 | Bottom-Right block      | B BUTTON      | Down arrow |
