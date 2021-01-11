@@ -79,7 +79,7 @@ You can either open the project with code blocks (which should be setup with SDL
 Should you use the Makefile, make sure you change the variables SDL_INCLUDE and SDL_LIB at the top to fit your SDL2 installation.
 I used mingw-32g++.exe to compile. If you use another compiler, make sure you have the appropriate libraries (and dlls) and change the compiler in the Makefile.
 
-If you compile with codeblocks, the executable will be in bin/Release or bin/Debug depending on wether you're in Release or Debug mode.
+If you compile with codeblocks, the executable will be in bin/Release or bin/Debug depending on whether you're in Release or Debug mode.
 If you compile with the Makefile, it will be in bin/PC.
 
 ## Switch
