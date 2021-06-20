@@ -37,7 +37,7 @@ Just download the release.zip and put your MP3s in the NotBeatSaber_data folder.
 
 Put the NotBeatSaber folder (that contains the NotBeatSaber_data folder and the executable) in the switch folder (you will need to have your musics in *sdcard*/switch/NotBeatSaber/NotBeatSaber_data) and launch the NotBeatSaber.nro (It was tested on a modded switch with Atmosphere 12.0.1).
 
-If you are using Ryujinx, use File-> Open Ryujinx folder and place the NotBeatSaber_data folder inside the sdcard folder (the hierarchy will be *Ryujinx folder*/sdcard/NotBeatSaber/data). The location of the .nro shoudldn't matter.
+If you are using Ryujinx, use File-> Open Ryujinx folder and place the NotBeatSaber_data folder inside the sdcard folder (the hierarchy will be *Ryujinx folder*/sdcard/NotBeatSaber_data). The location of the .nro shoudldn't matter.
 
 
 ## Controls:
