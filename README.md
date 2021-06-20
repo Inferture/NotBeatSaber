@@ -90,3 +90,11 @@ Once it's installed, you can launch Msys2 and using pacman, install switch-sdl2,
 Still in Msys2, use `make -f Makefile.switch` to compile for the switch.
 The executable will be in bin/switch (you should have the nro executable and the data in bin/switch/NotBeatSaber).
 
+# Credits
+
+The tracks were taken from https://freepd.com/ Here is the list:
+- Behind Enemy Lines - Rafael Krux
+- Drop Point - Bryan Teoh
+- Hippety Hop - Alexander Nakarada
+- River Meditation - Jason Shaw
+- Strength of the Titans - Kevin MacLeod
