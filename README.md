@@ -8,7 +8,7 @@ Port of the [rythm game I made in processing](https://github.com/Inferture/NotBe
 ## Playing:
 This mode is made to play an existing map.
 
-For the music to be available, there must be a file music.mp3 and a pattern file music.pattern in the data folder.
+For the music to be available, there must be a file music.mp3 and a pattern file music.pattern in the NotBeatSaber_data folder.
 
 For example, if the music is **"MyAwesomeMusic"**, there must be a .mp3 **"MyAwesomeMusic.mp3"** and a pattern **"MyAwesomeMusic.pattern"** in the data folder. 
 
@@ -22,7 +22,7 @@ This game is made to create a map.
 
 For this, the  music must be a valid .mp3 inside the data folder.
 
-For example, if the music is **"MyAwesomeMusic"**, there must be a .mp3 **"MyAwesomeMusic.mp3"** in the data folder. 
+For example, if the music is **"MyAwesomeMusic"**, there must be a .mp3 **"MyAwesomeMusic.mp3"** in the NotBeatSaber_data folder. 
 
 ![](https://media.giphy.com/media/xVjoQtmnOnV19z0BYD/giphy.gif)
 
@@ -31,15 +31,14 @@ You should play the music with the beat (Press a button exactly on beat so that 
 
 ## PC setup
 
-Just download the release.zip and put your MP3s in the data folder. 
+Just download the release.zip and put your MP3s in the NotBeatSaber_data folder. 
 
 ## Switch setup
 
-Put the NotBeatSaber folder (that contains the data folder) at the root of your sdcard (you will need to have your musics in *sdcard*/NotBeatSaber/data) and launch the NotBeatSaber.nro (It's all theory though since I couldn't test with a modded switch yet, and you should be able to take the .nro out of the NotBeatSaber folder and put it elsewhere).
+Put the NotBeatSaber folder (that contains the NotBeatSaber_data folder and the executable) in the switch folder (you will need to have your musics in *sdcard*/switch/NotBeatSaber/NotBeatSaber_data) and launch the NotBeatSaber.nro (It was tested on a modded switch with Atmosphere 12.0.1).
 
-If you are using Ryujinx, use File-> Open Ryujinx folder and place the NotBeatSaber folder inside the sdcard folder (the hierarchy will be *Ryujinx folder*/sdcard/NotBeatSaber/data). The location of the .nro shoudldn't matter.
+If you are using Ryujinx, use File-> Open Ryujinx folder and place the NotBeatSaber_data folder inside the sdcard folder (the hierarchy will be *Ryujinx folder*/sdcard/NotBeatSaber/data). The location of the .nro shoudldn't matter.
 
-Note: for now, patterns made in the PC version don't seem to work on the switch but the ones made on the switch seem to work on PC.
 
 ## Controls:
 
@@ -56,8 +55,9 @@ Note: for now, patterns made in the PC version don't seem to work on the switch 
 | Bottom-Left block       | DPAD DOWN     | S          |
 | Rewind (Creating mode)  | LEFT TRIGGER  | Left arrow |
 | Save (Creating mode)    | PLUS BUTTON   | G          |
-| Back to the main menu   | MINUS BUTTON  | Space      |
+| Back to the main menu   | L + R         | Space      |
 
+You can also make a slice movement with the joystick to slice the block (the acceleration of the joystick is what is taken into account). For example, for the Top right block, the motion must be upward with the right joystick.
 
 Block actions mean slicing the block in Playing mode and adding the block in Creating mode.
 
@@ -66,8 +66,8 @@ Block actions mean slicing the block in Playing mode and adding the block in Cre
 
 
 ## Add a music:
-Add a file .mp3 in the data folder and map it by selecting "Make a pattern" in the menu and choosing the name of your file.
-Don't forget to save with g (PC) / + (Switch) when you finish the mapping !
+Add a file .mp3 in the NotBeatSaber_data folder and map it by selecting "Make a pattern" in the menu and choosing the name of your file.
+Don't forget to save with g or F5 (PC) / + (Switch) when you finish the mapping !
 
 
 
