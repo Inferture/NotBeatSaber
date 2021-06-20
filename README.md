@@ -56,6 +56,8 @@ If you are using Ryujinx, use File-> Open Ryujinx folder and place the NotBeatSa
 | Rewind (Creating mode)  | LEFT TRIGGER  | Left arrow |
 | Save (Creating mode)    | PLUS BUTTON   | G          |
 | Back to the main menu   | L + R         | Space      |
+| Quit                    | MINUS BUTTON  | Escape     |
+
 
 You can also make a slice movement with the joystick to slice the block (the acceleration of the joystick is what is taken into account). For example, for the Top right block, the motion must be upward with the right joystick.
 
