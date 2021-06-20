@@ -24,7 +24,7 @@ class Pattern
         static Pattern* Deserialize(string name);
         void Add(BlockType type, int time);
         void Add(BlockSpawn spawn);
-        void Serialize();
+        int Serialize();
 
         Pattern(string name);
         Pattern(string name, string musicName, string artistName);

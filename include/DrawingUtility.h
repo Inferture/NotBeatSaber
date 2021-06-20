@@ -70,9 +70,9 @@ public:
 void clear();
 void render();
 
-void fill(SDL_Color color, int alpha = 255);
+void fill(SDL_Color color, uint8_t alpha = 255);
 
-void stroke(SDL_Color color, int alpha = 255);
+void stroke(SDL_Color color, uint8_t alpha = 255);
 void rect(int x, int y, int w, int h);
 
 void textFont(TTF_Font*);

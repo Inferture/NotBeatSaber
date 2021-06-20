@@ -2,9 +2,6 @@
 
 #include <SDL2/SDL.h>
 #include "../include/Global.h"
-#include <cstdlib>
-#include <stdlib.h>
-#include <algorithm>
 
 
 
@@ -14,11 +11,11 @@ using std::min;
 SDL_Color RandomWallColor()
 {
 
-  float min_brightness=255*3*MIN_BRIGHTNESS;
-  float max_brightness=255*3*MAX_BRIGHTNESS;
-   int r = rand() %255;
-   int g = rand() %255;
-   int b = rand() %255;
+   float min_brightness=255*3*MIN_BRIGHTNESS;
+   float max_brightness=255*3*MAX_BRIGHTNESS;
+   uint8_t r = rand() %255;
+   uint8_t g = rand() %255;
+   uint8_t b = rand() %255;
 
    float brightness = max(r+g+b,1);
 
@@ -38,33 +35,33 @@ SDL_Color RandomWallColor()
 }
 
 /**Gets from a color current to a color target with the speed speed*/
-SDL_Color GetNextColor(SDL_Color current, SDL_Color target, int speed)
+SDL_Color GetNextColor(SDL_Color current, SDL_Color target, uint8_t speed)
 {
     if(current.r>target.r)
     {
-      current = SDL_Color{max((int)target.r,current.r-speed),current.g, current.b};
+      current = SDL_Color{(uint8_t)max((int)target.r,current.r-speed),current.g, current.b};
     }
     if(current.r<target.r)
     {
-      current = SDL_Color{min((int)target.r,current.r+speed),current.g, current.b};
+      current = SDL_Color{(uint8_t)min((int)target.r,current.r+speed),current.g, current.b};
     }
 
     if(current.b>target.b)
     {
-      current = SDL_Color{current.r,current.g, max((int)target.b,current.b-speed)};
+      current = SDL_Color{current.r,current.g, (uint8_t)max((int)target.b,current.b-speed)};
     }
     if(current.b<target.b)
     {
-      current = SDL_Color{current.r,current.g, min((int)target.b,current.b+speed)};
+      current = SDL_Color{current.r,current.g, (uint8_t)min((int)target.b,current.b+speed)};
     }
 
     if(current.g>target.g)
     {
-      current = SDL_Color{current.r, max((int)target.g,current.g-speed), current.b};
+      current = SDL_Color{current.r, (uint8_t)max((int)target.g,current.g-speed), current.b};
     }
     if(current.g<target.g)
     {
-      current = SDL_Color{current.r, min((int)target.g,current.g+speed), current.b};
+      current = SDL_Color{current.r, (uint8_t)min((int)target.g,current.g+speed), current.b};
     }
     return current;
 }
@@ -78,13 +75,13 @@ SDL_Color RGBtoGBR(SDL_Color origin)
 /**intensify or attenuates a color with a float f*/
 SDL_Color MultiplyColor(SDL_Color c, float f)
 {
-    int newR = min(255,(int)(c.r*f));
-    int newG = min(255,(int)(c.g*f));
-    int newB = min(255,(int)(c.b*f));
+    uint8_t newR = min(255,(int)(c.r*f));
+    uint8_t newG = min(255,(int)(c.g*f));
+    uint8_t newB = min(255,(int)(c.b*f));
     return SDL_Color{newR, newG, newB};
 }
 /**Returns the negative color of c*/
 SDL_Color Negative(SDL_Color c)
 {
-   return SDL_Color{255-c.r, 255-c.g, 255-c.b};
+   return SDL_Color{(uint8_t) (255-c.r), (uint8_t) (255-c.g), (uint8_t) (255-c.b)};
 }

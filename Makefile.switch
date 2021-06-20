@@ -90,7 +90,7 @@ all-before:
 all-after:
 	mkdir -p $(BINDIR)/NotBeatSaber
 	cp $(BINDIR)/NotBeatSaber.nro $(BINDIR)/NotBeatSaber/NotBeatSaber.nro 
-	cp -r data $(BINDIR)/NotBeatSaber
+	cp -r NotBeatSaber_data $(BINDIR)/NotBeatSaber
 
 cleanobj:
 	$(RM) $(OBJ)

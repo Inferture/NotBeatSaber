@@ -20,7 +20,7 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_ttf.h>
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -56,12 +56,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_main.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -90,28 +90,28 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_config.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 	<sdkddkver.h>
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_platform.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\begin_code.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\begin_code.h
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\close_code.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\close_code.h
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_assert.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
@@ -119,7 +119,7 @@
 	<mbarrier.h>
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_audio.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -129,25 +129,25 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_error.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_endian.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_thread.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -158,18 +158,18 @@
 	<stdlib.h>
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -188,7 +188,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_events.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -202,7 +202,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_video.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -210,13 +210,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"SDL_endian.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_rect.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -224,7 +224,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_surface.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -233,11 +233,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -245,27 +245,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -274,17 +274,17 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_sensor.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_sensor.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_quit.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -292,65 +292,65 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_touch.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_hints.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_log.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_metal.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_metal.h
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_power.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_render.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_shape.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_shape.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -359,7 +359,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_system.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -367,29 +367,29 @@
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_timer.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_version.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_locale.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_locale.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1608572791 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_misc.h
+1608576391 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_misc.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1547322281 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_ttf.h
+1547325881 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
@@ -419,7 +419,7 @@
 	<SDL2/SDL2_gfxPrimitives.h>
 	"../include/Global.h"
 
-1518343112 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl2_gfxprimitives.h
+1518346712 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl2_gfxprimitives.h
 	<math.h>
 	"SDL.h"
 
@@ -463,7 +463,7 @@
 	"../include/ColorUtility.h"
 	"../include/DrawingUtility.h"
 
-1540998026 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_mixer.h
+1541001626 c:\program files (x86)\codeblocks\sdl2-2.0.14\i686-w64-mingw32\include\sdl2\sdl_mixer.h
 	"SDL_stdinc.h"
 	"SDL_rwops.h"
 	"SDL_audio.h"
@@ -592,5 +592,108 @@
 	<stdlib.h>
 
 1609936791 source:c:\users\q\desktop\travail\programmation système\notbeatsaber\src\transform.cpp
+	"../include/Transform.h"
+
+1609949151 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\block.cpp
+	"../include/Block.h"
+	<cmath>
+	<iostream>
+	"../include/DrawingUtility.h"
+	"../include/ColorUtility.h"
+
+1609950867 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\block.h
+	"../include/GameObject.h"
+
+1609950240 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\gameobject.h
+	"Transform.h"
+	"Global.h"
+
+1609593741 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\transform.h
+
+1622981931 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\global.h
+	<string>
+	<SDL2/SDL.h>
+	<SDL2/SDL_ttf.h>
+
+1622983963 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\drawingutility.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_ttf.h>
+	<string>
+	<vector>
+
+1622982937 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\colorutility.h
+	<SDL2/SDL.h>
+
+1622983243 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\colorutility.cpp
+	"../include/ColorUtility.h"
+	<SDL2/SDL.h>
+	"../include/Global.h"
+
+1622983970 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\drawingutility.cpp
+	"../include/DrawingUtility.h"
+	<SDL2/SDL.h>
+	<iostream>
+	<algorithm>
+	<SDL2/SDL2_gfxPrimitives.h>
+	"../include/Global.h"
+
+1609949237 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\gameobject.cpp
+	"../include/GameObject.h"
+	<cmath>
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	"../include/DrawingUtility.h"
+
+1624187351 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\global.cpp
+	"../include/Global.h"
+	"../include/DrawingUtility.h"
+
+1609950229 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\line.cpp
+	"../include/Line.h"
+	"../include/DrawingUtility.h"
+
+1609950684 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\line.h
+	"../include/GameObject.h"
+
+1623181121 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\main.cpp
+	<exception>
+	<string>
+	<iostream>
+	<SDL2/SDL.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<sstream>
+	<fstream>
+	<vector>
+	<dirent.h>
+	<algorithm>
+	<SDL2/SDL2_gfxPrimitives.h>
+	<switch.h>
+	"../include/Transform.h"
+	"../include/Global.h"
+	"../include/Pattern.h"
+	"../include/Line.h"
+	"../include/Block.h"
+	"../include/ColorUtility.h"
+	"../include/DrawingUtility.h"
+
+1621454677 c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\include\pattern.h
+	<string>
+	<vector>
+	"Block.h"
+
+1622377868 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\pattern.cpp
+	"../include/Pattern.h"
+	<vector>
+	<string>
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<stdlib.h>
+
+1609940391 source:c:\users\q\desktop\travail\programmation_systeme\notbeatsaber\src\transform.cpp
 	"../include/Transform.h"
 

@@ -46,7 +46,7 @@ float SCALE_HORIZON = 0.125;
 
 
 
-int LINE_PERIOD=500;
+int linePeriod=500;
 int lastLineTime;
 
 int COLOR_UPDATE_PERIOD=200;
@@ -58,8 +58,9 @@ float Z_HIT_RATIO_TOLERANCE=0.05;
 
 int DISAPPEAR_TIME=200;
 
-float WON_BLOCK_COLOR_MULTIPLIER=1.3;
+float WON_BLOCK_COLOR_MULTIPLIER=1.8;
 float LOST_BLOCK_COLOR_MULTIPLIER=0.5;
+float SLICEABLE_BLOCK_COLOR_MULTIPLIER=1.4;
 
 float MIN_BRIGHTNESS=1;
 float MAX_BRIGHTNESS=1;
@@ -67,13 +68,13 @@ float MAX_BRIGHTNESS=1;
 
 int CREDIT_DISPLAY_TIME=5000;
 
-int CREDIT_WIDTH=300;
+int CREDIT_WIDTH=500;
 int CREDIT_HEIGHT=30;
 
 #ifdef SWITCH
-string MAIN_FOLDER = "./NotBeatSaber/data";
+string MAIN_FOLDER = "./NotBeatSaber_data";
 #else
-string MAIN_FOLDER = "./data";
+string MAIN_FOLDER = "./NotBeatSaber_data";
 #endif // SWITCH
 
 

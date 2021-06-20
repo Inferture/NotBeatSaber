@@ -1,10 +1,10 @@
 #ifndef CONSTANTS_H_INCLUDED
 #define CONSTANTS_H_INCLUDED
 
+
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-
 using std::string;
 
 
@@ -32,8 +32,11 @@ extern GameStep step;
 extern  string music;
 extern GameMode mode;
 extern int bpm;//the higher the bpm, the higher the frequency of lines coming towards you. Just for aesthetic purpose.
+
 /******************************/
 
+extern int linePeriod;//calculated from the bpm, how long should we wait for a new line to appear
+extern int lastLineTime;
 
 //1
 extern int BLOCK_WIDTH;
@@ -53,8 +56,6 @@ extern float SCALE_HORIZON;
 
 
 
-extern int LINE_PERIOD;
-extern int lastLineTime;
 
 extern int COLOR_UPDATE_PERIOD;
 extern int lastColorUpdateTime;
@@ -67,6 +68,7 @@ extern int DISAPPEAR_TIME;
 
 extern float WON_BLOCK_COLOR_MULTIPLIER;
 extern float LOST_BLOCK_COLOR_MULTIPLIER;
+extern float SLICEABLE_BLOCK_COLOR_MULTIPLIER;
 
 extern float MIN_BRIGHTNESS;
 extern float MAX_BRIGHTNESS;

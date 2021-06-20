@@ -77,7 +77,8 @@ SDL_Rect SDL::GetCurrentTranslation()
         translateX+=m_transformations[i].translation.x;
         translateY+=m_transformations[i].translation.y;
     }
-    return SDL_Rect({translateX, translateY});
+
+    return SDL_Rect({(int)round(translateX), (int)round(translateY)});
 }
 
 ///Translates everything by (x,y). This transformation is active until the transformation is popped (with popMatrix)
@@ -111,7 +112,7 @@ void SDL::rect(int x, int y, int w, int h)
     x = centerX - w*m_scale.x/2;
     y = centerY - h*m_scale.y/2;
 
-    SDL_Rect rectangle{x + m_translation.x ,y + m_translation.y,w * m_scale.x,h * m_scale.y};
+    SDL_Rect rectangle{x + m_translation.x ,y + m_translation.y,(int)round(w * m_scale.x),(int)round(h * m_scale.y)};
 
 
     //Draws Filled rectangle
@@ -163,7 +164,7 @@ void SDL::text(string text,int x, int y, int w, int h)
 
     x = centerX - w*m_scale.x/2;
     y = centerY - h*m_scale.y/2;
-    SDL_Rect textPosition = {x + m_translation.x,y + m_translation.y,w * m_scale.x,h * m_scale.y};
+    SDL_Rect textPosition = {x + m_translation.x,y + m_translation.y,(int)round(w * m_scale.x),(int)round(h * m_scale.y)};
 
 
     //Draws the text
@@ -268,13 +269,13 @@ void textFont(TTF_Font * newFont)
     font = newFont;
 }
 
-void fill(SDL_Color color, int alpha)
+void fill(SDL_Color color, uint8_t alpha)
 {
     SDL_Color resultColor = SDL_Color{color.r, color.g, color.b, alpha};
     fillColor = resultColor;
 }
 
-void stroke(SDL_Color color, int alpha)
+void stroke(SDL_Color color, uint8_t alpha)
 {
     SDL_Color resultColor = SDL_Color{color.r, color.g, color.b, alpha};
     strokeColor = resultColor;

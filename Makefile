@@ -40,7 +40,7 @@ all-before:
 	mkdir -p $(OBJ_FOLDER)
 	mkdir -p $(BIN_FOLDER)
 	cp -rf *.dll $(BIN_FOLDER)
-	cp -r -rf ./data $(BIN_FOLDER)
+	cp -r -rf ./NotBeatSaber_data $(BIN_FOLDER)
 
 all-after:
 

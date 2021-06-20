@@ -70,8 +70,16 @@ Pattern* Pattern::Deserialize(string name)
         Pattern* pattern = new Pattern(name, musicName,artistName);
         while(getline(fileStream, blockSpawnString))
         {
+            string::size_type pos = 0; // Must initialize
+            while ( ( pos = blockSpawnString.find ("\r",pos) ) != string::npos )
+            {
+                blockSpawnString.erase ( pos, 2 );
+            }
+
             int endIndex = blockSpawnString.size()-1;
             int slashIndex = blockSpawnString.size()-2;
+
+
             string typeString = blockSpawnString.substr(endIndex,1);
             string timeString = blockSpawnString.substr(0,slashIndex);
 
@@ -96,7 +104,7 @@ Pattern* Pattern::Deserialize(string name)
 
 
 ///Serializes a pattern in a *name*.pattern file (see structure below)
-void Pattern::Serialize()
+int Pattern::Serialize()
 {
     char sep = '/';
 
@@ -113,11 +121,14 @@ void Pattern::Serialize()
             BlockSpawn spawn = spawns[i];
             fileStream<<spawn.time<<"/"<<GetTypeValue(spawn.type)<<endl;
         }
+        fileStream.close();
+        return 0;
     }
     else
     {
         cout << "error: could not open the file.\n";
     }
+    return 1;
 }
 
 /*//File structure ([comment not included])
